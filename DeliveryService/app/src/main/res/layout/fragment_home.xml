@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <Toolbar
             android:id="@+id/tb_home"
@@ -29,6 +30,48 @@
                 android:layout_gravity="center" />
         </Toolbar>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tb_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/shape_radius_10"
+            android:backgroundTint="#21767680"
+            android:padding="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="16dp">
 
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_search"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
+
+                android:hint="@string/home_search_hint"
+                android:textColorHint="#4D3C3C43"
+                style="@style/bm_default"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+
+                android:background="@null"
+                android:inputType="text"
+                tools:ignore="Autofill" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
