@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <FrameLayout
+            android:id="@+id/fl_home"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:background="@drawable/shape_navi"
+            app:itemBackground="@null"
+            app:itemIconSize="24dp"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextStyle.Selected"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextStyle"
+            app:menu="@menu/bottom_navi_items"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
