@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="bm_bold">
+        <item name="fontFamily">@font/bm_jua</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="bm_default">
+        <item name="fontFamily">@font/bm_jua</item>
+    </style>
+</resources>
