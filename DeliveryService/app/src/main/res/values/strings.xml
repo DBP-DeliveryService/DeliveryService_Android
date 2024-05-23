@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DeliveryService</string>
+
+    <!-- 바텀 네비게이션 -->
+    <string name="navi_item_home">홈</string>
+    <string name="navi_item_cart">장바구니</string>
+    <string name="navi_item_profile">프로필</string>
 </resources>
