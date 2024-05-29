@@ -17,7 +17,6 @@ class HomeActivity: AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // View Setting
         binding.bottomNavi.itemIconTintList = null
         binding.bottomNavi.labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_LABELED
 
@@ -40,6 +39,8 @@ class HomeActivity: AppCompatActivity() {
             }
             true
         }
+
+        binding.bottomNavi.selectedItemId = R.id.navi_home
     }
 
     fun setNaviVisible(p: Boolean){
