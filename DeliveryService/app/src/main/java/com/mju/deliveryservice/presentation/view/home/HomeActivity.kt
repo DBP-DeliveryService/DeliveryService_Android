@@ -43,14 +43,17 @@ class HomeActivity: AppCompatActivity() {
         binding.bottomNavi.selectedItemId = R.id.navi_home
     }
 
+    // 바텀 네비를 가시 상태 변경
     fun setNaviVisible(p: Boolean){
         binding.bottomNavi.visibility = if(p) View.VISIBLE else View.GONE
     }
 
+    // 스택 없이 프래그먼트 전환 (뒤로가기 시 스택이 있어야지만 그곳으로 가짐)
     fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fl_home, fragment).commit()
     }
 
+    // 스택 있이 프래그먼트 전환
     fun replaceFragmentWithStack(fragment: Fragment){
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_home, fragment)
