@@ -2,7 +2,7 @@ package com.mju.deliveryservice.data.remote
 
 import com.google.gson.GsonBuilder
 import com.mju.deliveryservice.data.utils.PrettyJsonLogger
-import com.orhanobut.logger.BuildConfig
+import com.mju.deliveryservice.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,7 +25,7 @@ object RetrofitClient {
     fun getInstance(): Retrofit {
         if (instance == null) {
             instance = Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build()
