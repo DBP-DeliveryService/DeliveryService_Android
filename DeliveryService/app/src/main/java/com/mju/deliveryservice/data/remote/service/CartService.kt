@@ -1,6 +1,5 @@
 package com.mju.deliveryservice.data.remote.service
 
-import com.google.gson.annotations.SerializedName
 import com.mju.deliveryservice.data.model.BaseResponse
 import com.mju.deliveryservice.data.model.MessageResponse
 import com.mju.deliveryservice.data.model.cart.AddMenuToCartRequestDTO
