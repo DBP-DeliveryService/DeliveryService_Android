@@ -4,6 +4,7 @@ import com.mju.deliveryservice.data.remote.RetrofitClient
 import com.mju.deliveryservice.data.remote.service.CategoryService
 import com.mju.deliveryservice.data.remote.service.MyPageService
 import com.mju.deliveryservice.data.remote.service.StoreService
+import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.domain.model.category.Categories
 import com.mju.deliveryservice.domain.model.category.Category
 import com.mju.deliveryservice.domain.model.category.StoresByCategory

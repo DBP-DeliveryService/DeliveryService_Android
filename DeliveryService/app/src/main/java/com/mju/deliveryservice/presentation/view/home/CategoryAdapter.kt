@@ -1,14 +1,16 @@
 package com.mju.deliveryservice.presentation.view.home
 
+import android.annotation.SuppressLint
 import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ItemCategoryBinding
-import com.mju.deliveryservice.domain.model.CategoryItem
+import com.mju.deliveryservice.domain.model.category.Category
 
-class CategoryAdapter(private val items: List<CategoryItem>) :
+class CategoryAdapter(private var items: List<Category>) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -25,8 +27,12 @@ class CategoryAdapter(private val items: List<CategoryItem>) :
     inner class CategoryViewHolder(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CategoryItem) {
-            binding.tvCategoryName.text = item.title
+        fun bind(item: Category) {
+            binding.tvCategoryName.text = item.categoryName
+
+            itemView.setOnClickListener {
+                CustomLogger.d("Category Click: ${item.id}")
+            }
         }
     }
 
@@ -51,5 +57,11 @@ class CategoryAdapter(private val items: List<CategoryItem>) :
                 }
             }
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(newList: List<Category>){
+        items = newList
+        notifyDataSetChanged()
     }
 }
