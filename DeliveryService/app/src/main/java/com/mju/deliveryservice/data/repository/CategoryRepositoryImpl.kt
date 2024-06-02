@@ -34,8 +34,8 @@ class CategoryRepositoryImpl: CategoryRepository {
         }
     }
 
-    override suspend fun getSearchStoresByCategory(): Result<List<StoresByCategory>> {
-        val res = service.getSearchStoresByCategory()
+    override suspend fun getSearchStoresByCategory(categoryId: Int): Result<List<StoresByCategory>> {
+        val res = service.getSearchStoresByCategory(categoryId)
 
         return try {
             if(res.isSuccessful){

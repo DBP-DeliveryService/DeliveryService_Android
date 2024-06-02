@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="혼밥대장"
+        style="@style/bm_bold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="12dp"/>
+    
+    <TextView
+        android:id="@+id/tv_operate_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tv_store_name"
+        app:layout_constraintTop_toTopOf="@id/tv_store_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_store_name"
+        android:layout_marginStart="4dp"
+        
+        tools:text="포장"
+        style="@style/bm_default"
+        android:includeFontPadding="false"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_radius_10"
+        android:backgroundTint="@color/primary"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="2dp"/>
+    
+    <ImageView
+        android:id="@+id/iv_star"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_star"
+        app:layout_constraintTop_toBottomOf="@id/tv_store_name"
+        app:layout_constraintStart_toStartOf="@id/tv_store_name"
+        android:layout_marginTop="4dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/iv_star"
+        app:layout_constraintBottom_toBottomOf="@id/iv_star"
+        app:layout_constraintStart_toEndOf="@id/iv_star"
+
+        tools:text="4.7"
+        android:textColor="@color/black"
+        style="@style/bm_default"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_detail_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/iv_star"
+        app:layout_constraintBottom_toBottomOf="@id/iv_star"
+        app:layout_constraintStart_toEndOf="@id/tv_rating"
+        android:layout_marginStart="8dp"
+
+        tools:text="일식"
+        android:textSize="12sp"
+        android:textColor="@color/gray_8e"
+        style="@style/bm_default"/>
+
+    <ImageView
+        android:id="@+id/iv_clock"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        app:layout_constraintStart_toStartOf="@id/iv_star"
+        app:layout_constraintEnd_toEndOf="@id/iv_star"
+        app:layout_constraintTop_toBottomOf="@id/iv_star"
+        android:layout_marginTop="4dp"
+
+        android:src="@drawable/ic_clock"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_delivery_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_clock"
+        app:layout_constraintTop_toTopOf="@id/iv_clock"
+        app:layout_constraintBottom_toBottomOf="@id/iv_clock"
+        android:layout_marginStart="4dp"
+        tools:text="9~19분"
+        android:textSize="12sp"
+        style="@style/bm_default"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tv_min_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tv_delivery_time"
+        app:layout_constraintTop_toTopOf="@id/tv_delivery_time"
+        app:layout_constraintBottom_toBottomOf="@id/tv_delivery_time"
+        android:layout_marginStart="8dp"
+        tools:text="최소주문 6,000원"
+        style="@style/bm_default"
+        android:textSize="12sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tv_delivery_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_clock"
+        app:layout_constraintStart_toStartOf="@id/iv_clock"
+        android:layout_marginTop="8dp"
+
+        tools:text="배달팁 4,300원"
+        style="@style/bm_default"
+        android:textColor="@color/black"
+        android:textSize="12sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
