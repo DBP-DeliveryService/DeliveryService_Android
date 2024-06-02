@@ -8,6 +8,6 @@ import com.mju.deliveryservice.domain.model.category.StoresByCategory
 interface CategoryRepository {
     suspend fun getCategories(): Result<Categories>
 
-    suspend fun getSearchStoresByCategory(): Result<List<StoresByCategory>>
+    suspend fun getSearchStoresByCategory(categoryId: Int): Result<List<StoresByCategory>>
 
 }

@@ -5,6 +5,7 @@ import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
 import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ItemCategoryBinding
@@ -31,7 +32,7 @@ class CategoryAdapter(private var items: List<Category>) :
             binding.tvCategoryName.text = item.categoryName
 
             itemView.setOnClickListener {
-                CustomLogger.d("Category Click: ${item.id}")
+                categoryClickListener.onClick(item)
             }
         }
     }
@@ -63,5 +64,15 @@ class CategoryAdapter(private var items: List<Category>) :
     fun setData(newList: List<Category>){
         items = newList
         notifyDataSetChanged()
+    }
+
+    interface OnCategoryClickListener{
+        fun onClick(categoryItem: Category)
+    }
+
+    private lateinit var categoryClickListener: OnCategoryClickListener
+
+    fun setCategoryClickListener(onCategoryClickListener: OnCategoryClickListener){
+        this.categoryClickListener = onCategoryClickListener
     }
 }
