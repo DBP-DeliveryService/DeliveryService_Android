@@ -3,11 +3,7 @@ package com.mju.deliveryservice.presentation.view.coupon
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mju.deliveryservice.data.repository.CategoryRepositoryImpl
 import com.mju.deliveryservice.data.repository.CouponRepositoryImpl
-import com.mju.deliveryservice.domain.model.category.Categories
-import com.mju.deliveryservice.domain.model.category.Category
-import com.mju.deliveryservice.domain.model.category.StoresByCategory
 import com.mju.deliveryservice.domain.model.coupon.CouponEntity
 import com.mju.deliveryservice.presentation.utils.UiState
 import kotlinx.coroutines.launch

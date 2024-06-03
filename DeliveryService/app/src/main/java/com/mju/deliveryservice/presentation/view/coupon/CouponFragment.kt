@@ -1,11 +1,9 @@
 package com.mju.deliveryservice.presentation.view.coupon
 
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mju.deliveryservice.R
-import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.FragmentCouponBinding
 import com.mju.deliveryservice.domain.model.coupon.CouponEntity
 import com.mju.deliveryservice.presentation.base.BaseFragment

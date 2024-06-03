@@ -1,6 +1,5 @@
 package com.mju.deliveryservice.presentation.view.home
 
-import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager

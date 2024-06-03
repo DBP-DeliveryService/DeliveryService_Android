@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mju.deliveryservice.R
-import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ItemCouponBinding
 import com.mju.deliveryservice.domain.model.coupon.CouponEntity
-import com.mju.deliveryservice.presentation.view.home.CategoryAdapter
 
 class CouponRvAdapter(private var items: List<CouponEntity>) :
     RecyclerView.Adapter<CouponRvAdapter.CategoryViewHolder>() {
