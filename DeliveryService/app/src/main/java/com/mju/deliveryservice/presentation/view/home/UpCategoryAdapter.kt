@@ -40,7 +40,7 @@ class UpCategoryAdapter(private var items: List<Category>) :
                 .into(binding.ivUpCategory)
 
             itemView.setOnClickListener {
-                CustomLogger.d("Category Click: ${item.id}")
+                categoryClickListener.onClick(item)
             }
         }
     }
@@ -58,5 +58,15 @@ class UpCategoryAdapter(private var items: List<Category>) :
     fun setData(newList: List<Category>){
         items = newList
         notifyDataSetChanged()
+    }
+
+    interface OnCategoryClickListener{
+        fun onClick(categoryItem: Category)
+    }
+
+    private lateinit var categoryClickListener: OnCategoryClickListener
+
+    fun setCategoryClickListener(onCategoryClickListener: OnCategoryClickListener){
+        this.categoryClickListener = onCategoryClickListener
     }
 }

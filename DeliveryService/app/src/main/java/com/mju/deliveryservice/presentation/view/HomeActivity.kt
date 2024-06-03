@@ -1,4 +1,4 @@
-package com.mju.deliveryservice.presentation.view.home
+package com.mju.deliveryservice.presentation.view
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import com.google.android.material.navigation.NavigationBarView
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ActivityHomeBinding
+import com.mju.deliveryservice.presentation.view.home.HomeFragment
 
 class HomeActivity: AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
