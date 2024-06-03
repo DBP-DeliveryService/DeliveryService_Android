@@ -1,6 +1,5 @@
 package com.mju.deliveryservice.presentation.view.home
 
-import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +18,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
 
     override fun initView() {
+        (requireActivity() as HomeActivity).setNaviVisible(true)
         viewModel.fetchData()
         setupRecyclerViews()
     }

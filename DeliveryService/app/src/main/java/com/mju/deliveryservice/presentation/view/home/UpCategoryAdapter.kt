@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ItemUpCategoryBinding
 import com.mju.deliveryservice.domain.model.category.Category
+import com.mju.deliveryservice.presentation.utils.GlideApp
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 class UpCategoryAdapter(private var items: List<Category>) :
@@ -34,7 +32,7 @@ class UpCategoryAdapter(private var items: List<Category>) :
         fun bind(item: Category) {
             binding.tvUpCategoryName.text = item.categoryName
 
-            Glide.with(binding.ivUpCategory)
+            GlideApp.with(binding.ivUpCategory)
                 .load(item.categoryImgUrl)
                 .transform(CenterCrop(), RoundedCornersTransformation(32, 0))
                 .into(binding.ivUpCategory)
