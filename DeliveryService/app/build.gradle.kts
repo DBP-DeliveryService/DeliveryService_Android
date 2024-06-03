@@ -69,6 +69,6 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
 
     implementation(libs.glide)
-    annotationProcessor(libs.glide.compiler)
+    kapt(libs.glide.compiler)
     implementation(libs.glide.transformations)
 }

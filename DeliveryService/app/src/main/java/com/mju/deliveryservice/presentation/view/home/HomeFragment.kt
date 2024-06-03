@@ -19,6 +19,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
 
     override fun initView() {
+        (requireActivity() as HomeActivity).setNaviVisible(true)
         viewModel.fetchData()
         setupRecyclerViews()
     }
