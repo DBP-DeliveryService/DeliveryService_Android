@@ -34,6 +34,6 @@ class MenuAdapter(private val menuList: List<Menu>) : RecyclerView.Adapter<MenuA
         val imageView: ImageView = itemView.findViewById(R.id.menu_image)
         val titleTextView: TextView = itemView.findViewById(R.id.menu_title)
         val descriptionTextView: TextView = itemView.findViewById(R.id.menu_description)
-        val priceTextView: TextView = itemView.findViewById(R.id.menu_price)
+        val priceTextView: TextView = itemView.findViewById(R.id.menu_price_small)
     }
 }
