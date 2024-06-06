@@ -63,13 +63,14 @@
                 app:layout_constraintStart_toEndOf="@id/iv_search"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="8dp"
-                android:hint="Search dish, cuisine, restaurant"
+                android:hint="@string/home_search_hint"
                 android:textColorHint="#4D3C3C43"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 style="@style/bm_default"
                 android:background="@null"
                 android:inputType="text"
+                android:imeOptions="actionSearch"
                 tools:ignore="Autofill" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,7 +109,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="16dp"
                     android:layout_marginStart="16dp"
-                    android:scrollbars="horizontal"
+                    android:scrollbars="none"
                     tools:itemCount="1"
                     tools:listitem="@layout/item_up_category"
                     tools:ignore="NestedScrolling" />

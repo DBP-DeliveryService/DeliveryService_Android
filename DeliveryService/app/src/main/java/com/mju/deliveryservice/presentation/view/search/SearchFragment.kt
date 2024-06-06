@@ -5,18 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.FragmentSearchBinding
+import com.mju.deliveryservice.domain.model.category.StoresByCategory
 import com.mju.deliveryservice.presentation.base.BaseFragment
 import com.mju.deliveryservice.presentation.utils.UiState
 import com.mju.deliveryservice.presentation.view.HomeActivity
 
-class SearchFragment(private val categoryId: Int, private val categoryName: String): BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
+class SearchFragment(private val categoryId: Int?, private val categoryName: String?, private val searchResult: List<StoresByCategory>): BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
     private lateinit var searchStoreAdapter: SearchResultAdapter
     private val viewModel: SearchViewModel by viewModels()
 
     override fun initView() {
         binding.tvCategoryName.text = categoryName
         setAdapter()
-        viewModel.fetchData(categoryId)
+        if(categoryId != null) viewModel.fetchData(categoryId)
     }
 
     override fun initListener() {
@@ -28,7 +29,7 @@ class SearchFragment(private val categoryId: Int, private val categoryName: Stri
     }
 
     private fun setAdapter(){
-        searchStoreAdapter = SearchResultAdapter(listOf())
+        searchStoreAdapter = SearchResultAdapter(searchResult)
         binding.rvStoreList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvStoreList.adapter = searchStoreAdapter
     }
