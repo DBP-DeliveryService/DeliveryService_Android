@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@null"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/tv_menu_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:translationZ="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+
+        tools:text="오늘의 초밥10P+리뷰서비스2P"
+        style="@style/bm_bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <ImageButton
+        android:id="@+id/ib_delete"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_clear"
+        android:background="#00FFFFFF"
+        tools:ignore="ContentDescription"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_menu_content"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_menu_name"
+        app:layout_constraintStart_toStartOf="@id/tv_menu_name"
+        android:layout_marginTop="10dp"
+        android:translationZ="10dp"
+
+        tools:text="기본 : 10pcs (13,000원) 초밥 추가 선택 : 타코와사비 1pcs 추가 (1,400원) 연어초밥 1pcs 추가 (1,600원)"
+        style="@style/bm_default"
+        android:textColor="@color/gray_8e"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_menu_content"
+        app:layout_constraintStart_toStartOf="@id/tv_menu_content"
+        android:layout_marginTop="20dp"
+        android:translationZ="10dp"
+
+        tools:text="16,000원"
+        style="@style/bm_default"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+
+    <ImageButton
+        android:id="@+id/btn_decrease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_minus"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@id/tv_price"
+        app:layout_constraintTop_toTopOf="@id/tv_price"
+        app:layout_constraintBottom_toBottomOf="@id/tv_price"
+        android:layout_marginStart="100dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="2dp"/>
+
+    <TextView
+        android:id="@+id/tv_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_decrease"
+        app:layout_constraintTop_toTopOf="@id/btn_decrease"
+        app:layout_constraintBottom_toBottomOf="@id/btn_decrease"
+        android:translationZ="10dp"
+
+        tools:text="1"
+        style="@style/bm_default"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <ImageButton
+        android:id="@+id/btn_increase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toEndOf="@id/tv_quantity"
+        app:layout_constraintTop_toTopOf="@id/tv_quantity"
+        app:layout_constraintBottom_toBottomOf="@id/tv_quantity"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="2dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
