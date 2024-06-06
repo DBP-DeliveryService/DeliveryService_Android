@@ -1,10 +1,12 @@
 package com.mju.deliveryservice.data.repository
 
+import com.mju.deliveryservice.data.model.coupon.CouponDTO
 import com.mju.deliveryservice.data.model.coupon.CouponIssuanceRequestDTO
 import com.mju.deliveryservice.data.remote.RetrofitClient
 import com.mju.deliveryservice.data.remote.service.CouponService
 import com.mju.deliveryservice.data.remote.service.MyPageService
 import com.mju.deliveryservice.data.remote.service.StoreService
+import com.mju.deliveryservice.domain.model.coupon.CouponEntity
 import com.mju.deliveryservice.domain.model.mypage.MyPageInfo
 import com.mju.deliveryservice.domain.model.store.MenuDetail
 import com.mju.deliveryservice.domain.model.store.StoreDetail
@@ -19,10 +21,32 @@ class CouponRepositoryImpl: CouponRepository {
         val res = service.couponIssuance(CouponIssuanceRequestDTO(couponCode))
 
         return try {
-            if(res.isSuccessful){
+            if(res.body()!!.statusCode == 200){
                 Result.success(res.body()?.data?.message ?: "Null Msg")
             } else {
-                throw Exception("getMyPage Fail")
+                throw Exception(res.body()!!.data.message)
+            }
+        } catch (e: Exception){
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getCoupons(): Result<List<CouponEntity>> {
+        val res = service.getCoupons()
+
+        return try {
+            if(res.body()!!.statusCode == 200){
+                Result.success(res.body()!!.data.couponResList.map { CouponEntity(
+                    couponContent = it.couponContent,
+                    couponStatus = it.couponStatus,
+                    couponName = it.couponName,
+                    discountAmount = it.discountAmount,
+                    expiredDate = it.expiredDate,
+                    id = it.id,
+                    minPrice = it.minPrice
+                ) })
+            } else {
+                throw Exception("GetCouponList Fail")
             }
         } catch (e: Exception){
             Result.failure(e)

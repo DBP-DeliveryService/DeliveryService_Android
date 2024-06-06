@@ -2,6 +2,7 @@ package com.mju.deliveryservice.presentation.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
@@ -12,6 +13,7 @@ import com.mju.deliveryservice.presentation.view.home.HomeFragment
 
 class HomeActivity: AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    private val viewModel: MainHomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
