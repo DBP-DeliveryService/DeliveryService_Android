@@ -4,8 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mju.deliveryservice.data.repository.CategoryRepositoryImpl
+import com.mju.deliveryservice.data.repository.StoreRepositoryImpl
 import com.mju.deliveryservice.domain.model.category.Categories
 import com.mju.deliveryservice.domain.model.category.Category
+import com.mju.deliveryservice.domain.model.category.StoresByCategory
 import com.mju.deliveryservice.presentation.utils.UiState
 import kotlinx.coroutines.launch
 
@@ -13,12 +15,16 @@ class HomeViewModel: ViewModel() {
 
     // 필요한 RepositoryImpl 객체 생성
     private val repositoryImpl = CategoryRepositoryImpl()
+    private val storeRepositoryImpl = StoreRepositoryImpl()
 
     // 상태 체크를 위한 LiveData 추가
     // UiState<T> -> Fragment or Activity에서 사용할 데이터 타입 넣으시면 됩니다.
     // Default 는 Unit
     private var _uiState = MutableLiveData<UiState<Categories>>(UiState.Loading)
     val uiState get() = _uiState
+
+    private var _searchState = MutableLiveData<UiState<StoresByCategory>>(UiState.Loading)
+    val searchState get() = _searchState
 
     // 호출 진행 전 상태를 로딩 상태로 놓고 API 호출 진행
     // onSuccess 와 onFailure 로 성공 여부에 따른 상태 변경 진행
@@ -33,6 +39,20 @@ class HomeViewModel: ViewModel() {
                 }
                 .onFailure {
                     _uiState.value = UiState.Failure(it.message.toString())
+                }
+        }
+    }
+
+    fun searchStore(searchWord: String){
+        _searchState.value = UiState.Loading
+
+        viewModelScope.launch {
+            storeRepositoryImpl.searchStore(searchWord)
+                .onSuccess {
+                    _searchState.value = UiState.Success(it)
+                }
+                .onFailure {
+                    _searchState.value = UiState.Failure(it.message.toString())
                 }
         }
     }
