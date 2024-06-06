@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:contentInsetStart="0dp">
+
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_arrow_forward"
+                android:rotation="180"
+                android:background="#00FFFFFF"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="주문하기"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                style="@style/bm_bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- 배달 정보 입력 -->
+        <TextView
+            android:id="@+id/tv_delivery_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="배달 정보"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_order"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default" />
+
+        <TextView
+            android:id="@+id/tv_delivery_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="강남구 역삼로"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_delivery_info"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default" />
+
+        <EditText
+            android:id="@+id/et_detail_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="상세 주소 입력"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:maxLines="5"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_delivery_address"
+            android:textSize="14sp"
+            style="@style/bm_default" />
+
+        <!-- 사용자 전화번호 -->
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화번호"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_detail_address"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default"/>
+
+        <TextView
+            android:id="@+id/tv_user_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="010-0000-0000"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone_number"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default" />
+
+        <TextView
+            android:id="@+id/tv_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="요청사항"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_phone_number"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default"/>
+
+        <EditText
+            android:id="@+id/et_request_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="예) 견과류 빼주세요, 덜 맵게 해주세요"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:maxLines="5"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_request"
+            android:textSize="14sp"
+            style="@style/bm_default" />
+
+        <TextView
+            android:id="@+id/tv_rider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="라이더님께"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_request_message"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default"/>
+
+        <Spinner
+            android:id="@+id/sp_rider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rider"
+            style="@style/bm_default"/>
+
+        <TextView
+            android:id="@+id/tv_payment_method"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결제수단"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sp_rider"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default"/>
+
+        <Spinner
+            android:id="@+id/sp_payment_method"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_payment_method"
+            style="@style/bm_default"/>
+
+        <TextView
+            android:id="@+id/tv_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="할인쿠폰"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sp_payment_method"
+            android:layout_marginStart="16dp"
+            style="@style/bm_default"/>
+
+        <ImageButton
+            android:id="@+id/ib_coupon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_arrow_forward"
+            android:background="#00FFFFFF"
+            android:layout_marginStart="280dp"
+            app:layout_constraintStart_toEndOf="@id/tv_coupon"
+            app:layout_constraintTop_toTopOf="@id/tv_coupon"
+            app:layout_constraintBottom_toBottomOf="@id/tv_coupon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_total_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="총 결제금액"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ib_coupon"
+            style="@style/bm_default"/>
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18,900원"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:layout_marginStart="200dp"
+            app:layout_constraintStart_toEndOf="@id/tv_total_payment"
+            app:layout_constraintTop_toTopOf="@id/tv_total_payment"
+            app:layout_constraintBottom_toBottomOf="@id/tv_total_payment"
+            style="@style/bm_default"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_purchase"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="20dp"
+
+            android:text="결제하기"
+            android:textColor="@color/white"
+            style="@style/bm_bold"
+            android:textSize="16sp"
+            android:background="@drawable/shape_radius_8_with_stroke"
+            android:backgroundTint="@color/primary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

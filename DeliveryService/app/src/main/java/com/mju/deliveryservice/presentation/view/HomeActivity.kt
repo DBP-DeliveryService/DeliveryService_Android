@@ -10,6 +10,7 @@ import com.mju.deliveryservice.R
 import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ActivityHomeBinding
 import com.mju.deliveryservice.presentation.view.home.HomeFragment
+import com.mju.deliveryservice.presentation.view.cart.CartFragment
 
 class HomeActivity: AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -32,7 +33,7 @@ class HomeActivity: AppCompatActivity() {
 
                 R.id.navi_cart -> {
                     CustomLogger.d("cart")
-                    replaceFragment(HomeFragment())
+                    replaceFragment(CartFragment())
                 }
 
                 R.id.navi_profile -> {

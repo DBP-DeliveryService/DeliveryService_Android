@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="60dp">
+
+    <TextView
+        android:id="@+id/tv_order_complete_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주문완료"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"
+        style="@style/bm_bold" />
+
+    <TextView
+        android:id="@+id/tv_order_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="접수대기 중"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        style="@style/bm_bold"/>
+
+    <TextView
+        android:id="@+id/tv_order_status2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가게에서 주문 확인 중입니다."
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        style="@style/bm_default"/>
+
+    <TextView
+        android:id="@+id/tv_order_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가게 사정에 따라 주문이 취소될 수 있습니다.\n접수되면 문자나 카톡으로 알려드릴게요.\n\n주문 상황은 주문내역에서\n언제든 확인하실 수 있습니다."
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"
+        style="@style/bm_default"/>
+
+    <ImageView
+        android:id="@+id/iv_order_status_image"
+        android:layout_width="262dp"
+        android:layout_height="236dp"
+        android:src="@drawable/image_order_complete"
+        android:layout_marginBottom="32dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_go_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+
+        android:text="홈으로 돌아가기"
+        android:textColor="@color/white"
+        style="@style/bm_bold"
+        android:textSize="16sp"
+        android:background="@drawable/shape_radius_8_with_stroke"
+        android:backgroundTint="@color/primary" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
