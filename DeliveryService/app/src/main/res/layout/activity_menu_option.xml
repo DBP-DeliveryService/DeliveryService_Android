@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Store Image -->
+            <ImageView
+                android:id="@+id/store_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_chicken1"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Dish Name -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="후라이드치킨"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Dish Description -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="메뉴 설명"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Reviews -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="메뉴 리뷰 14개"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"
+                android:paddingLeft="8dp" />
+
+            <!-- Price -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="가격"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="17,000원"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Side Dish Selection -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="치킨 선택"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/side_dish_yes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:text="뼈"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/side_dish_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:text="순살 + 1,000원"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <!-- Additional Options -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="음료 추가 선택"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <CheckBox
+                android:id="@+id/additional_option_zero_coke_500"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:text="제로콜라500ml 추가 + 1,000원"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp" />
+
+            <CheckBox
+                android:id="@+id/additional_option_zero_coke_1250"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:text="제로콜라1.25L 추가 + 1,000원"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp" />
+            <!-- Order Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="11,900원 담기"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
