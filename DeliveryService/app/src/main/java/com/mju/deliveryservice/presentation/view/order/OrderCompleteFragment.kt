@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.databinding.FragmentOrderCompleteBinding
+import com.mju.deliveryservice.presentation.view.HomeActivity
 import com.mju.deliveryservice.presentation.view.home.HomeFragment
 
 class OrderCompleteFragment : Fragment() {
@@ -29,10 +30,7 @@ class OrderCompleteFragment : Fragment() {
 
     private fun setupListeners() {
         binding.btnGoHome.setOnClickListener {
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fl_home, HomeFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
+            (requireActivity() as HomeActivity).setNaviHome()
         }
     }
 
