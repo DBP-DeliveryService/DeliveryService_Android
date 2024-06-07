@@ -1,4 +1,4 @@
-package com.mju.deliveryservice.presentation.view
+package com.mju.deliveryservice.presentation.view.profile
 
 
 import android.content.Intent
