@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 class CartDTO : ArrayList<CartDTOItem>()
 
 data class CartDTOItem(
+    @SerializedName("id") val menuId: Int,
     @SerializedName("menuContent") val menuContent: String,
     @SerializedName("menuName") val menuName: String,
     @SerializedName("price") val price: Int,
