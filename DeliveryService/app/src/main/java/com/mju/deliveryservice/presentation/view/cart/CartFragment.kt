@@ -36,6 +36,8 @@ class CartFragment : Fragment() {
         return binding.root
     }
 
+    private var totalAmount: Int = 0  // 총 금액을 저장할 변수 추가
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -74,6 +76,7 @@ class CartFragment : Fragment() {
                 is UiState.Success -> {
                     // 성공적으로 데이터를 가져오면 어댑터에 데이터 설정
                     cartAdapter.setData(state.data)
+                    totalAmount = state.data.sumOf { it.price * it.quantity }
                 }
                 is UiState.Failure -> {
                     // 실패 상태 처리 (예: 에러 메시지 표시)
@@ -86,9 +89,14 @@ class CartFragment : Fragment() {
     private fun setupListeners() {
         // 주문하기 버튼 클릭 리스너 설정
         binding.btnOrder.setOnClickListener {
+            // 주문하기 페이지로 이동하면서 총 금액 전달
+            val bundle = Bundle()
+            bundle.putInt("totalAmount", totalAmount)
+            val orderFragment = OrderFragment()
+            orderFragment.arguments = bundle
             // 주문하기 페이지로 이동
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fl_home, OrderFragment())
+            transaction.replace(R.id.fl_home, orderFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }

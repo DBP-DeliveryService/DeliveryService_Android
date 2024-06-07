@@ -46,7 +46,6 @@ class CartViewModel : ViewModel() {
                     fetchCart() // 데이터 갱신
                 }
                 .onFailure {
-                    _uiState.value = UiState.Failure(it.message.toString())
                 }
         }
     }
@@ -59,7 +58,6 @@ class CartViewModel : ViewModel() {
                     fetchCart() // 데이터 갱신
                 }
                 .onFailure {
-                    _uiState.value = UiState.Failure(it.message.toString())
                 }
         }
     }
