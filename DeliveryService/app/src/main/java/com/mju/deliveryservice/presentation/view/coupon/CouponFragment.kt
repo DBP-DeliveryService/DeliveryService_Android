@@ -27,11 +27,17 @@ class CouponFragment: BaseFragment<FragmentCouponBinding>(R.layout.fragment_coup
 
         with(binding){
             ibClear.setOnClickListener {
-                mainViewModel.selectedCoupon = null
+                mainViewModel.setSelectedCoupon(null)
                 requireActivity().supportFragmentManager.popBackStack()
             }
             btnIssue.setOnClickListener { viewModel.couponIssuance(etCouponCode.text.toString()) }
             btnRegister.setOnClickListener {
+                //requireActivity().supportFragmentManager.popBackStack()
+                // 선택한 쿠폰의 정보를 가져와 MainHomeViewModel에 저장
+                val selectedCoupon = couponAdapter.getSelectedCoupon()
+                mainViewModel.setSelectedCoupon(selectedCoupon)
+
+                // CouponFragment를 스택에서 제거하고 이전 Fragment로 이동
                 requireActivity().supportFragmentManager.popBackStack()
             }
         }
@@ -70,7 +76,7 @@ class CouponFragment: BaseFragment<FragmentCouponBinding>(R.layout.fragment_coup
         couponAdapter = CouponRvAdapter(listOf()).apply {
             setCouponClickListener(object : CouponRvAdapter.OnCouponClickListener{
                 override fun onClick(item: CouponEntity) {
-                    mainViewModel.selectedCoupon = item
+                    mainViewModel.setSelectedCoupon(item)
                 }
             })
         }
