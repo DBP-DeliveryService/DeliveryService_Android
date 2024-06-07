@@ -13,6 +13,14 @@ class CouponRvAdapter(private var items: List<CouponEntity>) :
 
     private var selectedPosition = RecyclerView.NO_POSITION
 
+    fun getSelectedCoupon(): CouponEntity? {
+        return if (selectedPosition != RecyclerView.NO_POSITION) {
+            items[selectedPosition]
+        } else {
+            null
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val binding = ItemCouponBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CategoryViewHolder(binding)
