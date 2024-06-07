@@ -9,8 +9,8 @@ import com.google.android.material.navigation.NavigationBarView
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ActivityHomeBinding
-import com.mju.deliveryservice.presentation.view.home.HomeFragment
 import com.mju.deliveryservice.presentation.view.cart.CartFragment
+import com.mju.deliveryservice.presentation.view.home.HomeFragment
 
 class HomeActivity: AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -50,6 +50,10 @@ class HomeActivity: AppCompatActivity() {
     // 바텀 네비를 가시 상태 변경
     fun setNaviVisible(p: Boolean){
         binding.bottomNavi.visibility = if(p) View.VISIBLE else View.GONE
+    }
+
+    fun setNaviHome(){
+        binding.bottomNavi.selectedItemId = R.id.navi_home
     }
 
     // 스택 없이 프래그먼트 전환 (뒤로가기 시 스택이 있어야지만 그곳으로 가짐)
