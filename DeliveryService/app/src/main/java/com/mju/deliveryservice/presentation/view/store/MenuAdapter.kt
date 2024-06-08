@@ -34,13 +34,13 @@ class MenuAdapter(menuList: List<MenuDetail>) : RecyclerView.Adapter<MenuAdapter
             binding.menuPriceSmall.text = "${item.price}원"
 
             itemView.setOnClickListener {
-                menuClickListener.onClick(item)
+                menuClickListener.onClick(adapterPosition)
             }
         }
     }
 
     interface OnMenuClickListener{
-        fun onClick(item: MenuDetail)
+        fun onClick(pos: Int)
     }
 
     private lateinit var menuClickListener: OnMenuClickListener

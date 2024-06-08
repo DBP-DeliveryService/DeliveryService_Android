@@ -54,7 +54,6 @@ class MenuOptionFragment(private val menuId: Int) : Fragment(){
                     is UiState.Failure -> {}
                     is UiState.Loading -> {}
                     is UiState.Success -> {
-//                        (requireActivity() as HomeActivity).replaceFragmentWithStack(CartFragment())
                         (requireActivity() as HomeActivity).setNaviItem(1)
                     }
                 }

@@ -67,8 +67,8 @@ class StoreDetailFragment(private val storeData: StoresByCategory) : Fragment() 
     private fun setupRecyclerView() {
         menuAdapter = MenuAdapter(menuDetailList).apply {
             setMenuClickListener(object : MenuAdapter.OnMenuClickListener{
-                override fun onClick(item: MenuDetail) {
-                    moveMenuDetail(null)
+                override fun onClick(pos: Int) {
+                    moveMenuDetail(pos)
                 }
             })
         }
@@ -78,8 +78,8 @@ class StoreDetailFragment(private val storeData: StoresByCategory) : Fragment() 
         }
     }
 
-    private fun moveMenuDetail(menuId: Int?){
-        (requireActivity() as HomeActivity).replaceFragmentWithStack(MenuOptionFragment(menuId ?: 1))
+    private fun moveMenuDetail(pos: Int){
+        (requireActivity() as HomeActivity).replaceFragmentWithStack(MenuOptionFragment(pos + 1))
     }
 
     override fun onDestroyView() {
