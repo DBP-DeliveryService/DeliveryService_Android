@@ -26,11 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.view.HomeActivity"/>
-        <activity android:name=".presentation.view.StoreDetailActivity" />
-        <activity
-            android:name=".presentation.view.MenuOptionActivity"
-            android:exported="false"
-            android:parentActivityName=".presentation.view.StoreDetailActivity"/>
+
     </application>
 
 </manifest>

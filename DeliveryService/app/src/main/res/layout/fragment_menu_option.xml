@@ -35,6 +35,7 @@
 
             <!-- Dish Name -->
             <TextView
+                android:id="@+id/menu_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="후라이드치킨"
@@ -44,6 +45,7 @@
 
             <!-- Dish Description -->
             <TextView
+                android:id="@+id/menu_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="메뉴 설명"
@@ -72,6 +74,7 @@
                 android:layout_marginBottom="8dp" />
 
             <TextView
+                android:id="@+id/menu_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="17,000원"
@@ -143,9 +146,10 @@
                 android:layout_marginBottom="16dp" />
             <!-- Order Button -->
             <Button
+                android:id="@+id/add_to_cart_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="11,900원 담기"
+                android:text="담기"
                 android:backgroundTint="@android:color/holo_blue_light"
                 android:textColor="@android:color/white"
                 android:textSize="18sp" />
