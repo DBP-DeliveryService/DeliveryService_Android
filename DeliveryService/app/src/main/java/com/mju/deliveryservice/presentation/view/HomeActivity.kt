@@ -69,4 +69,8 @@ class HomeActivity: AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    fun setNaviItem(id: Int){
+        binding.bottomNavi.selectedItemId = binding.bottomNavi.menu.getItem(id).itemId
+    }
 }

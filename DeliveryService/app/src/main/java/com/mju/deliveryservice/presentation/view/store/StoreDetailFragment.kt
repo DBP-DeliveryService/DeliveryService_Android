@@ -10,13 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.databinding.FragmentStoreDetailBinding
+import com.mju.deliveryservice.domain.model.category.StoresByCategory
 
 import com.mju.deliveryservice.domain.model.store.MenuDetail
 import com.mju.deliveryservice.domain.model.store.StoreDetail
+import com.mju.deliveryservice.presentation.utils.GlideApp
 import com.mju.deliveryservice.presentation.utils.UiState
+import com.mju.deliveryservice.presentation.view.HomeActivity
 import com.mju.deliveryservice.presentation.view.cart.CartFragment
 
-class StoreDetailFragment : Fragment() {
+class StoreDetailFragment(private val storeData: StoresByCategory) : Fragment() {
     private var _binding: FragmentStoreDetailBinding? = null
     private val binding get() = _binding!!
 
@@ -31,8 +34,6 @@ class StoreDetailFragment : Fragment() {
         1, 2, 3, 4
     )
 
-    var store: StoreDetail? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,74 +44,46 @@ class StoreDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as HomeActivity).setNaviVisible(false)
 
-        // 네비게이션 바 설정 - 뒤로 가기
-        (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
-        (activity as? AppCompatActivity)?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.toolbar.setNavigationOnClickListener {
-//            startActivity(Intent(requireContext(), StoreDetailFragment::class.java))
-//            activity?.finish()
+        binding.ibBack.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
-
-
-        binding.orderButton.setOnClickListener {
-            val bundle = Bundle()
-            val cartFragment = CartFragment()
-            cartFragment.arguments = bundle
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fl_home, cartFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-
-        }
-
-        storeDetailViewModel.getStoreDetail(1) { uiState ->
+        storeDetailViewModel.getStoreDetail(1) { uiState -> // id=1 연희보리밥
             if (uiState is UiState.Success) {
-                store = uiState.data
+                binding.storeName.text = uiState.data.storeName
+                binding.storeMinPrice.text = "최소주문금액 ${uiState.data.minPrice}원"
+                binding.storeRating.rating = uiState.data.rating.toFloat()
+                binding.storeDeliveryTip.text = "배달팁 ${uiState.data.deliveryTip}원"
+                menuDetailList.addAll(uiState.data.menuList)
+                binding.storeDeliveryTime.text = "최소 ${storeData.minDeliveryTime}분 소요 예정"
 
-                binding.storeName.text = store!!.storeName
-                binding.storeMinPrice.text = "최소주문금액 ${store!!.minPrice}원"
-                binding.storeRating.rating = store!!.rating.toFloat()
-                binding.storeDeliveryTip.text = "배달팁 ${store!!.deliveryTip}원"
-                // store의 menulist 받아오기 - DTO...??
-                menuDetailList.addAll(store?.menuList ?: listOf())
-
+                setupRecyclerView()
             }
-        }
-
-        for(menuId in menuList) {
-            menuViewModel.getMenu(menuId) { uiState ->
-                getMenuList(menuId, uiState)
-            }
-
-        }
-
-        setupRecyclerView()
-    }
-
-    fun getMenuList(menuId: Int, uiState: UiState<MenuDetail>) {
-        if (uiState is UiState.Success) {
-            menuDetailList.add(uiState.data)
         }
     }
 
     private fun setupRecyclerView() {
-        // RecyclerView 어댑터와 레이아웃 매니저 설정
-        menuAdapter = MenuAdapter(menuDetailList)
+        menuAdapter = MenuAdapter(menuDetailList).apply {
+            setMenuClickListener(object : MenuAdapter.OnMenuClickListener{
+                override fun onClick(item: MenuDetail) {
+                    moveMenuDetail(null)
+                }
+            })
+        }
         binding.menuRecyclerView.apply {
-            menuAdapter = menuAdapter
+            adapter = menuAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-
     }
 
-
+    private fun moveMenuDetail(menuId: Int?){
+        (requireActivity() as HomeActivity).replaceFragmentWithStack(MenuOptionFragment(menuId ?: 1))
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

@@ -40,6 +40,10 @@ class SearchResultAdapter(private var items: List<StoresByCategory>) :
                 tvMinPrice.text = itemView.context.getString(R.string.store_item_price, item.minPrice.toString())
                 tvDeliveryTip.text = itemView.context.getString(R.string.store_item_tip, item.deliveryTip.toString())
             }
+
+            itemView.setOnClickListener {
+                storeClickListener.onClick(item)
+            }
         }
     }
 
@@ -47,5 +51,15 @@ class SearchResultAdapter(private var items: List<StoresByCategory>) :
     fun setData(newList: List<StoresByCategory>){
         items = newList
         notifyDataSetChanged()
+    }
+
+    interface OnStoreClickListener{
+        fun onClick(storeData: StoresByCategory)
+    }
+
+    private lateinit var storeClickListener: OnStoreClickListener
+
+    fun setStoreClickListener(onStoreClickListener: OnStoreClickListener){
+        this.storeClickListener = onStoreClickListener
     }
 }

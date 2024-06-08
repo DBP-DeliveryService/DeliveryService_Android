@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.databinding.FragmentCartBinding
 import com.mju.deliveryservice.presentation.utils.UiState
+import com.mju.deliveryservice.presentation.view.HomeActivity
 import com.mju.deliveryservice.presentation.view.order.OrderFragment
 
 class CartFragment : Fragment() {
@@ -40,6 +41,11 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (requireActivity() as HomeActivity).apply {
+            setNaviVisible(true)
+        }
+
 
         // RecyclerView 설정
         setupRecyclerView()

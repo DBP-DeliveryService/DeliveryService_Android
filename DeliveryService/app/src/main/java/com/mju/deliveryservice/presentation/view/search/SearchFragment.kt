@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mju.deliveryservice.R
 import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.FragmentSearchBinding
+import com.mju.deliveryservice.domain.model.category.Category
 import com.mju.deliveryservice.domain.model.category.StoresByCategory
 import com.mju.deliveryservice.presentation.base.BaseFragment
 import com.mju.deliveryservice.presentation.utils.UiState
 import com.mju.deliveryservice.presentation.view.HomeActivity
+import com.mju.deliveryservice.presentation.view.store.StoreDetailFragment
 
 class SearchFragment(private val categoryId: Int?, private val categoryName: String?, private val searchResult: List<StoresByCategory>): BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
     private lateinit var searchStoreAdapter: SearchResultAdapter
@@ -29,7 +31,13 @@ class SearchFragment(private val categoryId: Int?, private val categoryName: Str
     }
 
     private fun setAdapter(){
-        searchStoreAdapter = SearchResultAdapter(searchResult)
+        searchStoreAdapter = SearchResultAdapter(searchResult).apply {
+            setStoreClickListener(object : SearchResultAdapter.OnStoreClickListener{
+                override fun onClick(storeData: StoresByCategory) {
+                    moveStoreDetailFragment(storeData)
+                }
+            })
+        }
         binding.rvStoreList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvStoreList.adapter = searchStoreAdapter
     }
@@ -48,5 +56,12 @@ class SearchFragment(private val categoryId: Int?, private val categoryName: Str
                 }
             }
         }
+    }
+
+    private fun moveStoreDetailFragment(item: StoresByCategory){
+        (requireActivity() as HomeActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_home, StoreDetailFragment(item))
+            .addToBackStack(null)
+            .commit()
     }
 }

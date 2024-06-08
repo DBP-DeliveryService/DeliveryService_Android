@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mju.deliveryservice.databinding.MenuItemBinding
+import com.mju.deliveryservice.domain.model.category.StoresByCategory
 import com.mju.deliveryservice.domain.model.store.MenuDetail
 
 class MenuAdapter(menuList: List<MenuDetail>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
@@ -21,8 +22,6 @@ class MenuAdapter(menuList: List<MenuDetail>) : RecyclerView.Adapter<MenuAdapter
 
     }
 
-
-
     override fun getItemCount(): Int {
         return menuList.size
     }
@@ -33,8 +32,20 @@ class MenuAdapter(menuList: List<MenuDetail>) : RecyclerView.Adapter<MenuAdapter
             binding.menuTitle.text = item.menuName
             binding.menuDescription.text = item.menuContent
             binding.menuPriceSmall.text = "${item.price}원"
+
+            itemView.setOnClickListener {
+                menuClickListener.onClick(item)
+            }
         }
+    }
 
+    interface OnMenuClickListener{
+        fun onClick(item: MenuDetail)
+    }
 
+    private lateinit var menuClickListener: OnMenuClickListener
+
+    fun setMenuClickListener(onMenuClickListener: OnMenuClickListener){
+        this.menuClickListener = onMenuClickListener
     }
 }
