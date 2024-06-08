@@ -21,7 +21,7 @@ class StoreDetailFragment(private val storeData: StoresByCategory) : Fragment() 
 
     private lateinit var menuAdapter: MenuAdapter
 
-    var menuDetailList: ArrayList<MenuDetail> = arrayListOf()
+    var menuDetailList: List<MenuDetail> = listOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +39,19 @@ class StoreDetailFragment(private val storeData: StoresByCategory) : Fragment() 
             requireActivity().supportFragmentManager.popBackStack()
         }
 
-        storeDetailViewModel.getStoreDetail(1) { uiState -> // id=1 연희보리밥
+        val storeId =
+            when (storeData.storeName) {
+                "연희보리밥" -> 1
+                "어글리김밥" -> 2
+                else -> 1
+            }
+        storeDetailViewModel.getStoreDetail(storeId) { uiState -> // id=1 연희보리밥
             if (uiState is UiState.Success) {
                 binding.storeName.text = uiState.data.storeName
                 binding.storeMinPrice.text = "최소주문금액 ${uiState.data.minPrice}원"
                 binding.storeRating.rating = uiState.data.rating.toFloat()
                 binding.storeDeliveryTip.text = "배달팁 ${uiState.data.deliveryTip}원"
-                menuDetailList.addAll(uiState.data.menuList)
+                menuDetailList = uiState.data.menuList
                 binding.storeDeliveryTime.text = "최소 ${storeData.minDeliveryTime}분 소요 예정"
 
                 setupRecyclerView()

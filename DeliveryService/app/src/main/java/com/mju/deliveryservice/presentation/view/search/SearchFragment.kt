@@ -16,6 +16,7 @@ class SearchFragment(private val categoryId: Int?, private val categoryName: Str
     private val viewModel: SearchViewModel by viewModels()
 
     override fun initView() {
+        (requireActivity() as HomeActivity).setNaviVisible(false)
         binding.tvCategoryName.text = categoryName
         setAdapter()
         if(categoryId != null) viewModel.fetchData(categoryId)
@@ -24,7 +25,7 @@ class SearchFragment(private val categoryId: Int?, private val categoryName: Str
     override fun initListener() {
         super.initListener()
         with(binding){
-            ibBack.setOnClickListener { (requireActivity() as HomeActivity).supportFragmentManager.popBackStack() }
+            ibBack.setOnClickListener { (requireActivity() as HomeActivity).setNaviItem(0) }
 
         }
     }
