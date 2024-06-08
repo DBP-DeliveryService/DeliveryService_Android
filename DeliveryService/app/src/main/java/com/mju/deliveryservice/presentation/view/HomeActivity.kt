@@ -11,6 +11,7 @@ import com.mju.deliveryservice.data.utils.CustomLogger
 import com.mju.deliveryservice.databinding.ActivityHomeBinding
 import com.mju.deliveryservice.presentation.view.cart.CartFragment
 import com.mju.deliveryservice.presentation.view.home.HomeFragment
+import com.mju.deliveryservice.presentation.view.profile.ProfileFragment
 
 class HomeActivity: AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -38,7 +39,7 @@ class HomeActivity: AppCompatActivity() {
 
                 R.id.navi_profile -> {
                     CustomLogger.d("profile")
-                    replaceFragment(HomeFragment())
+                    replaceFragment(ProfileFragment())
                 }
             }
             true

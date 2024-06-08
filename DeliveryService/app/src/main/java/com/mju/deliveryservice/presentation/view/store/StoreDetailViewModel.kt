@@ -15,7 +15,9 @@ class StoreDetailViewModel : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState<StoreDetail>>(UiState.Loading)
     val uiState get() = _uiState
+
     var store: StoreDetail? = null
+
     fun getStoreDetail(storeId: Int, callback: (UiState<StoreDetail>) -> Unit) {
 
         callback(UiState.Loading)
@@ -30,9 +32,4 @@ class StoreDetailViewModel : ViewModel() {
                 }
         }
     }
-
-    fun getStore(): StoreDetail? {
-        return store
-    }
-
 }

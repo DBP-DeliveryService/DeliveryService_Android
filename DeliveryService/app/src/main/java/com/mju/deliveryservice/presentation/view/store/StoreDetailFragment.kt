@@ -75,12 +75,10 @@ class StoreDetailFragment : Fragment() {
                 binding.storeRating.rating = store!!.rating.toFloat()
                 binding.storeDeliveryTip.text = "배달팁 ${store!!.deliveryTip}원"
                 // store의 menulist 받아오기 - DTO...??
-                menuDetailList = store!!.menuList
+                menuDetailList.addAll(store?.menuList ?: listOf())
 
             }
         }
-
-
 
         for(menuId in menuList) {
             menuViewModel.getMenu(menuId) { uiState ->
@@ -89,10 +87,7 @@ class StoreDetailFragment : Fragment() {
 
         }
 
-
         setupRecyclerView()
-
-
     }
 
     fun getMenuList(menuId: Int, uiState: UiState<MenuDetail>) {

@@ -4,7 +4,7 @@ import com.mju.deliveryservice.data.model.store.MenuDetailDTO
 
 data class StoreDetail(
     val deliveryTip: Int,
-    val menuList: List<MenuDetailDTO>,
+    val menuList: List<MenuDetail>,
     val minPrice: String,
     val rating: Int,
     val storeName: String

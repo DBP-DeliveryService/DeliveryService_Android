@@ -15,7 +15,16 @@ class StoreRepositoryImpl: StoreRepository {
 
         return try {
             if(res.isSuccessful){
-                val data = res.body()!!.data.run { StoreDetail(deliveryTip, menuList, minPrice, rating, storeName) }
+                val data = res.body()!!.data.run { StoreDetail(
+                    deliveryTip,
+                    menuList.map {
+                        MenuDetail(
+                            menuContent = it.menuContent, menuName = it.menuName, menuPictureUrl = it.menuPictureUrl, price = it.price
+                        ) },
+                    minPrice,
+                    rating,
+                    storeName)
+                }
                 Result.success(data)
             } else {
                 throw Exception("getStoreDetail Fail")
