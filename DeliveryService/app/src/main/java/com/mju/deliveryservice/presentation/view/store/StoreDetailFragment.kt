@@ -6,33 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mju.deliveryservice.R
 import com.mju.deliveryservice.databinding.FragmentStoreDetailBinding
 import com.mju.deliveryservice.domain.model.category.StoresByCategory
-
 import com.mju.deliveryservice.domain.model.store.MenuDetail
-import com.mju.deliveryservice.domain.model.store.StoreDetail
-import com.mju.deliveryservice.presentation.utils.GlideApp
 import com.mju.deliveryservice.presentation.utils.UiState
 import com.mju.deliveryservice.presentation.view.HomeActivity
-import com.mju.deliveryservice.presentation.view.cart.CartFragment
 
 class StoreDetailFragment(private val storeData: StoresByCategory) : Fragment() {
     private var _binding: FragmentStoreDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val menuViewModel: MenuViewModel by viewModels()
     private val storeDetailViewModel: StoreDetailViewModel by viewModels()
 
     private lateinit var menuAdapter: MenuAdapter
 
     var menuDetailList: ArrayList<MenuDetail> = arrayListOf()
-
-    var menuList: ArrayList<Int> = arrayListOf(
-        1, 2, 3, 4
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

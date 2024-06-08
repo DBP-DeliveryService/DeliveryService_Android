@@ -13,7 +13,6 @@ class ProfileViewModel : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState<MyPageInfo>>(UiState.Loading)
     val uiState get() = _uiState
-    var user: MyPageInfo? = null
 
     fun getMyPageInfo(userId: Int, callback: (UiState<MyPageInfo>) -> Unit) {
 

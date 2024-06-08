@@ -31,7 +31,7 @@ class CartFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // 뷰 바인딩 객체 초기화
         _binding = FragmentCartBinding.inflate(inflater, container, false)
         return binding.root

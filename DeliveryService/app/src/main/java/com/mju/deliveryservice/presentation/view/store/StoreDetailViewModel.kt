@@ -4,8 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mju.deliveryservice.data.repository.StoreRepositoryImpl
-import com.mju.deliveryservice.domain.model.mypage.MyPageInfo
-import com.mju.deliveryservice.domain.model.store.MenuDetail
 import com.mju.deliveryservice.domain.model.store.StoreDetail
 import com.mju.deliveryservice.presentation.utils.UiState
 import kotlinx.coroutines.launch

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mju.deliveryservice.databinding.MenuItemBinding
-import com.mju.deliveryservice.domain.model.category.StoresByCategory
 import com.mju.deliveryservice.domain.model.store.MenuDetail
 
 class MenuAdapter(menuList: List<MenuDetail>) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
@@ -28,7 +27,7 @@ class MenuAdapter(menuList: List<MenuDetail>) : RecyclerView.Adapter<MenuAdapter
 
     inner class MenuViewHolder(private val binding: MenuItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MenuDetail) {
-            Glide.with(binding.root).load(item.menuPictureUrl).into(binding.menuImage);
+            Glide.with(binding.root).load(item.menuPictureUrl).into(binding.menuImage)
             binding.menuTitle.text = item.menuName
             binding.menuDescription.text = item.menuContent
             binding.menuPriceSmall.text = "${item.price}원"

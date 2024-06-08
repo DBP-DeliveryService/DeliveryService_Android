@@ -1,16 +1,11 @@
 package com.mju.deliveryservice.presentation.view.search
 
 import android.annotation.SuppressLint
-import android.graphics.Rect
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mju.deliveryservice.R
-import com.mju.deliveryservice.data.utils.CustomLogger
-import com.mju.deliveryservice.databinding.ItemCategoryBinding
 import com.mju.deliveryservice.databinding.ItemSearchStoreBinding
-import com.mju.deliveryservice.domain.model.category.Category
 import com.mju.deliveryservice.domain.model.category.StoresByCategory
 
 class SearchResultAdapter(private var items: List<StoresByCategory>) :

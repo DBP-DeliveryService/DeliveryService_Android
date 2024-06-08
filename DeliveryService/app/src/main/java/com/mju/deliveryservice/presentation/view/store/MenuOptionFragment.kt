@@ -8,10 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.mju.deliveryservice.databinding.FragmentMenuOptionBinding
-import com.mju.deliveryservice.domain.model.store.MenuDetail
 import com.mju.deliveryservice.presentation.utils.UiState
 import com.mju.deliveryservice.presentation.view.HomeActivity
-import com.mju.deliveryservice.presentation.view.cart.CartFragment
 
 class MenuOptionFragment(private val menuId: Int) : Fragment(){
     private var _binding: FragmentMenuOptionBinding? = null
@@ -22,7 +20,7 @@ class MenuOptionFragment(private val menuId: Int) : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMenuOptionBinding.inflate(inflater, container, false)
         return binding.root
     }
